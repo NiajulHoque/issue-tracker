@@ -1,24 +1,24 @@
 {
   "name": "issue-tracker",
   "private": true,
+  "packageManager": "yarn@4.2.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "turbo test"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@biomejs/biome": "1.7.3",
     "prettier": "^3.2.5",
-    "turbo": "latest"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "yarn@4.2.2",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+    "turbo": "^1.13.3"
+  }
 }

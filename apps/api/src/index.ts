@@ -1,16 +1,25 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import express, { Request, Response } from "express";
+import cors from "cors";
+import { json } from "body-parser";
 
-const app = new Hono()
+import authRouter from "./routes/auth.routes";
+import ENV_CONFIG from "./constants/env-config";
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const app = express();
+app.use(cors());
+app.use(json());
 
-const port = 3000
-console.log(`Server is running on port ${port}`)
+const port = ENV_CONFIG.port || "8080";
 
-serve({
-  fetch: app.fetch,
-  port
-})
+// Routes
+app.use("/api/auth", authRouter);
+
+app.get("/api/hello", (req: Request, res: Response) => {
+  res.json({
+    message: "Hello World!",
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});

@@ -10,13 +10,22 @@
     "test:coverage": "vitest --run --coverage"
   },
   "dependencies": {
-    "@hono/node-server": "^1.11.2",
-    "@vitest/coverage-v8": "^1.6.0",
-    "hono": "^4.4.2",
+    "@repo/data-commons": "*",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.13.0",
+    "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
     "tsx": "^4.11.0",
     "vitest": "^1.6.0"

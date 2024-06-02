@@ -1,7 +1,17 @@
+import { getValidationResult } from "@repo/data-commons";
 import { z } from "zod";
 
-export const createAccountSchema = z.object({
+export const createAccountEndpointSchema = z.object({
   email: z.string().min(1),
   password: z.string().min(1),
+  telegramId: z.number().positive(),
 });
-export type CreateAccountSchema = z.infer<typeof createAccountSchema>;
+export type CreateAccountEndpointSchema = z.infer<
+  typeof createAccountEndpointSchema
+>;
+
+export const validateCreateAccountEndpointData = (input: unknown) =>
+  getValidationResult<CreateAccountEndpointSchema>(
+    input,
+    createAccountEndpointSchema
+  );
